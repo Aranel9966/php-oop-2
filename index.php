@@ -27,21 +27,22 @@ require_once("./db.php");
 
 <body>
     <h1>Pet Shop</h1>
-    <div class="d-flex">
-
-
+    <div class="d-flex justify-content-center  flex-wrap">
         <?php
         foreach ($articlesList as $singleItems) {
         ?>
-            <div class="card m-3 d-flex " style="width: 200px; ">
-                <img src="<?= $singleItems->img ?>" class="card-img-top" style="width: 120px;" alt="...">
+            <div class="card m-3 d-flex justify-content-center" style="width: 200px; ">
+                <div class="img" style="height: 250px;">
+                    <img src="<?= $singleItems->img ?>" class="card-img-top" style="height: 100%;" alt="...">
+                </div>
                 <div class="card-body">
                     <h5 class="card-title"><?= $singleItems->type ?></h5>
                     <p class="card-text">
-                        <span>for <?= $singleItems->size ?></span>
-                        <span><?= $singleItems->breed ?></span>
+                        <span>Size: <?= $singleItems->size ?></span>
                         <br>
-                        <span><?= $singleItems->type ?></span>
+                        <span>Breed: <?= $singleItems->breed ?></span>
+                        <br>
+                        <span>Article: <?= $singleItems->type ?></span>
                         <span>
                             <?php
                             if (isset($singleItems->taste)) {
@@ -52,11 +53,8 @@ require_once("./db.php");
                             ?>
                         </span>
                         <br>
-                        <span><?= $singleItems->price ?></span>
-
-                    </p>
-
-                    <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                        <span>Price: <?= $singleItems->price ?></span>
+                    </p> <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
                 </div>
             </div>
         <?php

@@ -6,7 +6,10 @@ Immaginare quali sono le classi necessarie per creare uno shop online con le seg
 Stampiamo delle card contenenti i dettagli dei prodotti,
 come immagine, titolo, prezzo, icona della categoria 
 ed il tipo di articolo che si sta visualizzando 
-(prodotto, cibo, gioco, cuccia). -->
+(prodotto, cibo, gioco, cuccia).
+-aggiungendo almeno un trait ed un exception 
+(con conseguente try / catch) al vostro shop!
+-->
 <?php
 require_once("./Models/animals.php");
 require_once("./Models/articles.php");
@@ -45,11 +48,18 @@ require_once("./db.php");
                         <span>Article: <?= $singleItems->type ?></span>
                         <span>
                             <?php
-                            if (isset($singleItems->color)) {
-                                echo $singleItems->color;
-                            } else {
-                                echo $singleItems->taste;
-                            };
+                            switch (get_class($singleItems)) {
+                                case 'Articles':
+                                    echo $singleItems->color;
+                                    break;
+                                case 'Food':
+                                    echo $singleItems->taste;
+                                    echo "<br> Scadenza: " . $singleItems->getExpiration();
+                                    break;
+                                default:
+                                    break;
+                            }
+
                             ?>
                         </span>
                         <br>

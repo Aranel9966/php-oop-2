@@ -25,8 +25,8 @@ require_once("./db.php");
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 </head>
 
-<body>
-    <h1>Pet Shop</h1>
+<body class="bg-info-subtle">
+    <h1 class=" d-flex justify-content-center">Pet Shop</h1>
     <div class="d-flex justify-content-center  flex-wrap">
         <?php
         foreach ($articlesList as $singleItems) {
@@ -45,23 +45,22 @@ require_once("./db.php");
                         <span>Article: <?= $singleItems->type ?></span>
                         <span>
                             <?php
-                            if (isset($singleItems->taste)) {
-                                echo $singleItems->taste;
-                            } else {
+                            if (isset($singleItems->color)) {
                                 echo $singleItems->color;
+                            } else {
+                                echo $singleItems->taste;
                             };
                             ?>
                         </span>
                         <br>
                         <span>Price: <?= $singleItems->price ?></span>
-                    </p> <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                    </p>
                 </div>
             </div>
         <?php
         }
         ?>
     </div>
-
     <!-- bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 </body>

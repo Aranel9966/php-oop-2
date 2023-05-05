@@ -11,8 +11,8 @@ $articlesList[] = $catFood;
 $articlesList[] = $dogFood;
 
 try {
-    $dogFood->setExpiration('8/02/2024');
     $catFood->setExpiration('18/08/2025');
+    $dogFood->setExpiration('8/02/2024');
 } catch (Exception $e) {
     echo $e->getMessage();
 }

@@ -7,7 +7,7 @@ trait Expirationable
     public function setExpiration(string $date)
     {
 
-        if (!isset($this->date)) {
+        if ($date != '') {
             return $this->date = $date;
         } else {
             throw new Exception("manca la scadenza");
